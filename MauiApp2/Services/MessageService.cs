@@ -62,7 +62,7 @@ namespace MauiApp2.Services
             };
         }
 
-        public List<MessageDummy> GetChats()
+        public List<MessageDummy> GetChats() //do wyjebania
         {
             return new List<MessageDummy>
             {
@@ -137,69 +137,69 @@ namespace MauiApp2.Services
             };
         }
 
-        readonly User user1 = new User
+        readonly User user1 = new User //do wyjebania
         {
             Name = "Maciek Maciek",
             Color = Color.FromArgb("#FFE0EC")
         };
 
-        readonly User user2 = new()
+        readonly User user2 = new() //do wyjebania
         {
             Name = "Ziutek Ziutek",
             Image = "emoji2.png",
             Color = Color.FromArgb("#BFE9F2")
         };
 
-        readonly User user3 = new()
+        readonly User user3 = new() //do wyjebania
         {
             Name = "Ania Ania",
             Image = "emoji3.png",
             Color = Color.FromArgb("#FFD6C4")
         };
 
-        readonly User user4 = new()
+        readonly User user4 = new() //do wyjebania
         {
             Name = "Roman Roman",
             Image = "emoji4.png",
             Color = Color.FromArgb("#C3C1E6")
         };
 
-        readonly User user5 = new()
+        readonly User user5 = new() //do wyjebania
         {
             Name = "Justyna Justyna",
             Image = "emoji5.png",
             Color = Color.FromArgb("#FFE0EC")
         };
 
-        readonly User user6 = new()
+        readonly User user6 = new() //do wyjebania
         {
             Name = "James Bond",
             Image = "emoji6.png",
             Color = Color.FromArgb("#FFE5A6")
         };
 
-        readonly User user7 = new()
+        readonly User user7 = new() //do wyjebania
         {
             Name = "Gerard Kowalski",
             Image = "emoji7.png",
             Color = Color.FromArgb("#FFE0EC")
         };
 
-        readonly User user8 = new()
+        readonly User user8 = new() //do wyjebania
         {
             Name = "Antoni Whitney",
             Image = "emoji8.png",
             Color = Color.FromArgb("#FFE0EC")
         };
 
-        readonly User user9 = new()
+        readonly User user9 = new() //do wyjebania
         {
             Name = "Jaime Zuniga",
             Image = "emoji9.png",
             Color = Color.FromArgb("#C3C1E6")
         };
 
-        readonly User user10 = new()
+        readonly User user10 = new() //do wyjebania
         {
             Name = "Barbara Cherry",
             Image = "emoji10.png",

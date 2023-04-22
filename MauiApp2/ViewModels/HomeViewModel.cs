@@ -13,7 +13,7 @@ namespace MauiApp2.ViewModels
     public class HomeViewModel : ViewModelBase
     {
         ObservableCollection<User> _users; //do wyjebania
-        ObservableCollection<MessageDummy> _recentChat;
+        ObservableCollection<MessageDummy> _recentChat; //do wyjebania
         public ObservableCollection<RosterItem> _contactsCollection;
 
         public HomeViewModel()
@@ -31,7 +31,7 @@ namespace MauiApp2.ViewModels
             }
         }
 
-        public ObservableCollection<User> Users //To prawdopodobnie do wyjebania
+        public ObservableCollection<User> Users //To do wyjebania
         {
             get { return _users; }
             set
@@ -41,7 +41,7 @@ namespace MauiApp2.ViewModels
             }
         }
 
-        public ObservableCollection<MessageDummy> RecentChat
+        public ObservableCollection<MessageDummy> RecentChat //Do wyjebania
         {
             get { return _recentChat; }
             set
@@ -60,7 +60,7 @@ namespace MauiApp2.ViewModels
             ContactsCollection = new ObservableCollection<RosterItem>(MessageService.Instance.GetContacts(ClientService.Instance.Client));
 
             Users = new ObservableCollection<User>(MessageService.Instance.GetUsers()); //Do wyjebania
-            RecentChat = new ObservableCollection<MessageDummy>(MessageService.Instance.GetChats());
+            RecentChat = new ObservableCollection<MessageDummy>(MessageService.Instance.GetChats()); //do wyjebania
         }
 
         void OnNavigate(object parameter)
@@ -69,10 +69,10 @@ namespace MauiApp2.ViewModels
         }
 
         public ICommand LogoutCommand => new Command<object>(Logout);
+
         void Logout(object parameter)
         {
             ClientService.Instance.Logout();
-
 
             NavigationService.Instance.NavigateToAsync<LoginViewModel>(parameter);
         }
