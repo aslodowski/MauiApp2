@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.Views.LoginView"
+             x:DataType="viewmodel:LoginViewModel"
+             xmlns:viewmodel="clr-namespace:MauiApp2.ViewModels"
+             Title="LoginView">
+    <ScrollView>
+        <VerticalStackLayout HorizontalOptions="Center">
+            <Grid ColumnDefinitions="50*, 50*" 
+              RowDefinitions="25*, 25*, 25*, 25*"
+              ColumnSpacing="10"
+              RowSpacing="20">
+                <Label x:Name="lblLogin"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       Margin="0, 30, 0, 0"
+                       Text="Login:"
+                       FontSize="25"
+                       VerticalOptions="Center"
+                       HorizontalOptions="EndAndExpand"/>
+                <Entry x:Name="enLogin"
+                       Placeholder="Login"
+                       Text="{Binding UserName}"
+                       Margin="0, 30, 0, 0"
+                       FontSize="25"
+                       MinimumWidthRequest="200"
+                       Grid.Column="1"
+                       Grid.Row="0"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"/>
+                <Label x:Name="lblPassword"
+                       Grid.Column="0"
+                       Grid.Row="1"
+                       FontSize="25"
+                       Text="Password:"
+                       VerticalOptions="Center"
+                       HorizontalOptions="EndAndExpand"/>
+                <Entry x:Name="enPassword"
+                       Placeholder="Password"
+                       Text="{Binding Password}"
+                       FontSize="25"
+                       Grid.Column="1"
+                       Grid.Row="1"
+                       MinimumWidthRequest="200"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       IsPassword="True"/>
+                <Label x:Name="lblServer"
+                       Grid.Column="0"
+                       FontSize="25"
+                       Grid.Row="2"
+                       Text="Server:"
+                       VerticalOptions="Center"
+                       HorizontalOptions="EndAndExpand"/>
+                <Entry x:Name="enServer"
+                       Placeholder="Host Name"
+                       Text="{Binding Host}"
+                       FontSize="25"
+                       Grid.Column="1"
+                       Grid.Row="2"
+                       MinimumWidthRequest="200"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"/>
+
+                <Button x:Name="btnConnect"
+                        Command="{Binding ConnectCommand}"                        
+                        Text="Connect"
+                        FontSize="25"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Grid.Row="3"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"/>
+
+
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

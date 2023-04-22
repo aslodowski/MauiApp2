@@ -10,6 +10,6 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-        MainPage = new NavigationPage(new HomeView());
+        MainPage = new NavigationPage(new LoginView());
     }
 }

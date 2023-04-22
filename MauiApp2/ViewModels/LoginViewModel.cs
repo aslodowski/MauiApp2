@@ -1,7 +1,6 @@
 ﻿using Artalk.Xmpp.Client;
 using MauiApp2.Services;
 using MauiApp2.ViewModels.Base;
-using Microsoft.UI.Xaml.Controls;
 using System.Windows.Input;
 
 namespace MauiApp2.ViewModels
