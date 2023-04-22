@@ -1,6 +1,6 @@
 ﻿namespace MauiApp2.Models
 {
-    public class User
+    public class User //Do wyjebania
     {
         public string Name { get; set; }
         public string Image { get; set; }

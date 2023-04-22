@@ -1,6 +1,8 @@
-﻿using Artalk.Xmpp.Client;
+﻿using Artalk.Xmpp;
+using Artalk.Xmpp.Client;
 using Artalk.Xmpp.Im;
 using MauiApp2.Models;
+using System.Collections.ObjectModel;
 
 namespace MauiApp2.Services
 {
@@ -19,11 +21,26 @@ namespace MauiApp2.Services
             }
         }
 
-        public ArtalkXmppClient Client { get; set; } //do wyjebania może
+        public ObservableCollection<MessageDummy> Messages { get; set; }
 
         public void OnNewMessage(object? sender, MessageEventArgs e)
         {
-            //TODO logika odbierania wiadomości
+            Jid userJid = e.Jid; //Tutaj Jid usera który przysłał
+            string message = e.Message.Body; //Tutaj przysłana wiadomość
+
+            var user = new User() //Zamienić na RosterItem
+            {
+                Name = userJid.ToString()
+            };
+
+            Messages.Add(new MessageDummy()
+            {
+                Sender = user,
+                Text = message,
+                Time = DateTime.Now.ToString()
+            });
+
+            //TODO do przetestowania i debugowania
         }
 
         public List<RosterItem> GetContacts(ArtalkXmppClient client)
@@ -82,40 +99,41 @@ namespace MauiApp2.Services
             };
         }
 
-        public List<MessageDummy> GetMessages(User sender)
+        public List<MessageDummy> GetMessages()
         {
-            return new List<MessageDummy> {
-              new MessageDummy
-              {
-                Sender = null,
-                Time = "18:42",
-                Text = "Lubisz to?",
-              },
-              new MessageDummy
-              {
-                Sender = sender,
-                Time = "18:39",
-                Text = "Ciężko powiedzieć.",
-              },
-              new MessageDummy
-              {
-                Sender = sender,
-                Time = "18:39",
-                Text =
-                    "hahahha",
-              },
-              new MessageDummy
-              {
-                Sender = null,
-                Time = "18:36",
-                Text = "Nic nie robię, jak zawsze",
-              },
-              new MessageDummy
-              {
-                Sender= sender,
-                Time = "18:35",
-                Text= "Eloszka.",
-              },
+            return new List<MessageDummy>
+            {
+                //new MessageDummy
+                //{
+                //  Sender = null,
+                //  Time = "18:42",
+                //  Text = "Lubisz to?",
+                //},
+                //new MessageDummy
+                //{
+                //  Sender = sender,
+                //  Time = "18:39",
+                //  Text = "Ciężko powiedzieć.",
+                //},
+                //new MessageDummy
+                //{
+                //  Sender = sender,
+                //  Time = "18:39",
+                //  Text =
+                //      "hahahha",
+                //},
+                //new MessageDummy
+                //{
+                //  Sender = null,
+                //  Time = "18:36",
+                //  Text = "Nic nie robię, jak zawsze",
+                //},
+                //new MessageDummy
+                //{
+                //  Sender= sender,
+                //  Time = "18:35",
+                //  Text= "Eloszka.",
+                //},
             };
         }
 

@@ -1,4 +1,6 @@
-﻿using MauiApp2.Models;
+﻿using Artalk.Xmpp.Client;
+using Artalk.Xmpp.Im;
+using MauiApp2.Models;
 using MauiApp2.Services;
 using MauiApp2.ViewModels.Base;
 using System.Collections.ObjectModel;
@@ -11,12 +13,24 @@ namespace MauiApp2.ViewModels
         User _user;
         ObservableCollection<MessageDummy> _messages;
 
-        public User User
+        public User User //Do wyjebania na rzecz Contact
         {
             get { return _user; }
             set
             {
                 _user = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private RosterItem _contact;
+
+        public RosterItem Contact
+        {
+            get { return _contact; }
+            set
+            {
+                _contact = value;
                 OnPropertyChanged();
             }
         }
@@ -31,17 +45,48 @@ namespace MauiApp2.ViewModels
             }
         }
 
+        string _message;
+
+        public string Message //do tego podpiąć textbox z view gdzie pisze się wiadomości
+        {
+            get { return _message; }
+            set
+            {
+                _message = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ICommand BackCommand => new Command(OnBack);
+        public ICommand SendCommand => new Command(SendMessage);
 
         public override Task InitializeAsync(object navigationData)
         {
             if (navigationData is MessageDummy message)
             {
                 User = message.Sender;
-                Messages = new ObservableCollection<MessageDummy>(MessageService.Instance.GetMessages(User));
+                Messages = new ObservableCollection<MessageDummy>(MessageService.Instance.GetMessages());
+
+                MessageService.Instance.Messages = Messages;
             }
 
             return base.InitializeAsync(navigationData);
+        }
+
+        public void SendMessage()
+        {
+            if (Message is null || Contact is null) return;
+
+            var client = ClientService.Instance.Client;
+
+            client.SendMessage(Contact.Jid, Message);
+
+            Messages.Add(new MessageDummy()
+            {
+                Sender = null,
+                Text = Message,
+                Time = DateTime.Now.ToString()
+            });
         }
 
         void OnBack()
