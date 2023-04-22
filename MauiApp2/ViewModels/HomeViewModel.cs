@@ -12,15 +12,26 @@ namespace MauiApp2.ViewModels
 {
     public class HomeViewModel : ViewModelBase
     {
-        ObservableCollection<User> _users;
+        ObservableCollection<User> _users; //do wyjebania
         ObservableCollection<MessageDummy> _recentChat;
+        public ObservableCollection<RosterItem> _contactsCollection;
 
         public HomeViewModel()
         {
             LoadData();
         }
 
-        public ObservableCollection<User> Users
+        public ObservableCollection<RosterItem> ContactsCollection
+        {
+            get { return _contactsCollection; }
+            set
+            {
+                _contactsCollection = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ObservableCollection<User> Users //To prawdopodobnie do wyjebania
         {
             get { return _users; }
             set
@@ -44,7 +55,11 @@ namespace MauiApp2.ViewModels
 
         void LoadData()
         {
-            Users = new ObservableCollection<User>(MessageService.Instance.GetUsers());
+            MessageService.Instance.Client = ClientService.Instance.Client;
+
+            ContactsCollection = new ObservableCollection<RosterItem>(MessageService.Instance.GetContacts());
+
+            Users = new ObservableCollection<User>(MessageService.Instance.GetUsers()); //Do wyjebania
             RecentChat = new ObservableCollection<MessageDummy>(MessageService.Instance.GetChats());
         }
 

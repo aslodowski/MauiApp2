@@ -1,4 +1,5 @@
-﻿using Artalk.Xmpp.Im;
+﻿using Artalk.Xmpp.Client;
+using Artalk.Xmpp.Im;
 using MauiApp2.Models;
 
 namespace MauiApp2.Services
@@ -18,81 +19,26 @@ namespace MauiApp2.Services
             }
         }
 
+        public ArtalkXmppClient Client { get; set; }
+
         public void OnNewMessage(object? sender, MessageEventArgs e)
         {
             //TODO logika odbierania wiadomości
         }
 
-        readonly User user1 = new User
+        public List<RosterItem> GetContacts()
         {
-            Name = "Maciek Maciek",
-            Color = Color.FromArgb("#FFE0EC")
-        };
+            var contacts = new List<RosterItem>();
 
-        readonly User user2 = new()
-        {
-            Name = "Ziutek Ziutek",
-            Image = "emoji2.png",
-            Color = Color.FromArgb("#BFE9F2")
-        };
+            foreach (var rosterItem in Client.GetRoster())
+            {
+                contacts.Add(rosterItem);
+            }
 
-        readonly User user3 = new()
-        {
-            Name = "Ania Ania",
-            Image = "emoji3.png",
-            Color = Color.FromArgb("#FFD6C4")
-        };
+            return contacts;
+        }
 
-        readonly User user4 = new()
-        {
-            Name = "Roman Roman",
-            Image = "emoji4.png",
-            Color = Color.FromArgb("#C3C1E6")
-        };
-
-        readonly User user5 = new()
-        {
-            Name = "Justyna Justyna",
-            Image = "emoji5.png",
-            Color = Color.FromArgb("#FFE0EC")
-        };
-
-        readonly User user6 = new()
-        {
-            Name = "James Bond",
-            Image = "emoji6.png",
-            Color = Color.FromArgb("#FFE5A6")
-        };
-
-        readonly User user7 = new()
-        {
-            Name = "Gerard Kowalski",
-            Image = "emoji7.png",
-            Color = Color.FromArgb("#FFE0EC")
-        };
-
-        readonly User user8 = new()
-        {
-            Name = "Antoni Whitney",
-            Image = "emoji8.png",
-            Color = Color.FromArgb("#FFE0EC")
-        };
-
-        readonly User user9 = new()
-        {
-            Name = "Jaime Zuniga",
-            Image = "emoji9.png",
-            Color = Color.FromArgb("#C3C1E6")
-        };
-
-        readonly User user10 = new()
-        {
-            Name = "Barbara Cherry",
-            Image = "emoji10.png",
-            Color = Color.FromArgb("#FF95A2")
-        };
-
-        public List<User> GetUsers()
+        public List<User> GetUsers() //Do wyjebania
         {
             return new List<User>
             {
@@ -173,5 +119,74 @@ namespace MauiApp2.Services
               },
             };
         }
+
+        readonly User user1 = new User
+        {
+            Name = "Maciek Maciek",
+            Color = Color.FromArgb("#FFE0EC")
+        };
+
+        readonly User user2 = new()
+        {
+            Name = "Ziutek Ziutek",
+            Image = "emoji2.png",
+            Color = Color.FromArgb("#BFE9F2")
+        };
+
+        readonly User user3 = new()
+        {
+            Name = "Ania Ania",
+            Image = "emoji3.png",
+            Color = Color.FromArgb("#FFD6C4")
+        };
+
+        readonly User user4 = new()
+        {
+            Name = "Roman Roman",
+            Image = "emoji4.png",
+            Color = Color.FromArgb("#C3C1E6")
+        };
+
+        readonly User user5 = new()
+        {
+            Name = "Justyna Justyna",
+            Image = "emoji5.png",
+            Color = Color.FromArgb("#FFE0EC")
+        };
+
+        readonly User user6 = new()
+        {
+            Name = "James Bond",
+            Image = "emoji6.png",
+            Color = Color.FromArgb("#FFE5A6")
+        };
+
+        readonly User user7 = new()
+        {
+            Name = "Gerard Kowalski",
+            Image = "emoji7.png",
+            Color = Color.FromArgb("#FFE0EC")
+        };
+
+        readonly User user8 = new()
+        {
+            Name = "Antoni Whitney",
+            Image = "emoji8.png",
+            Color = Color.FromArgb("#FFE0EC")
+        };
+
+        readonly User user9 = new()
+        {
+            Name = "Jaime Zuniga",
+            Image = "emoji9.png",
+            Color = Color.FromArgb("#C3C1E6")
+        };
+
+        readonly User user10 = new()
+        {
+            Name = "Barbara Cherry",
+            Image = "emoji10.png",
+            Color = Color.FromArgb("#FF95A2")
+        };
     }
 }
