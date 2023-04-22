@@ -86,7 +86,7 @@ namespace MauiApp2.Services
         {
             Page page = CreateAndBindPage(viewModelType, parameter);
 
-            if (page is HomeView) 
+            if (page is HomeView)
             {
                 CurrentApplication.MainPage = page;
             }
@@ -105,6 +105,7 @@ namespace MauiApp2.Services
         {
             _mappings.Add(typeof(HomeViewModel), typeof(HomeView));
             _mappings.Add(typeof(DetailViewModel), typeof(DetailView));
+            _mappings.Add(typeof(LoginViewModel), typeof(LoginView));
         }
     }
 }
