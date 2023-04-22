@@ -55,10 +55,12 @@ namespace MauiApp2.ViewModels
 
         void Connect() //To będzie w LoginViewModel
         {
+            ClientService.Instance.Login(Hostname, UserName, Password);
             Client = ClientService.Instance.Client;
+
             Client.Message += MessageService.Instance.OnNewMessage;
 
-            ClientService.Instance.Login(Hostname, UserName, Password);
+            Client.Connect();
         }
 
         void LoadData()
