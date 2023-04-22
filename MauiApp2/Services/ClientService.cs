@@ -1,9 +1,4 @@
 ﻿using Artalk.Xmpp.Client;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MauiApp2.Services
 {
@@ -13,16 +8,24 @@ namespace MauiApp2.Services
 
         public ArtalkXmppClient Client { get; set; }
 
-
         public static ClientService Instance
         {
             get
             {
-                if (_instance == null)
-                    _instance = new ClientService();
+                _instance ??= new ClientService();
 
                 return _instance;
             }
+        }
+
+        public void Login(string hostman, string userName, string password)
+        {
+            Client = new ArtalkXmppClient(hostman, userName, password);
+        }
+
+        public void Logout()
+        {
+            Client.Dispose();
         }
     }
 }

@@ -1,12 +1,11 @@
-﻿using MauiApp2.Models;
+﻿using Artalk.Xmpp.Im;
+using MauiApp2.Models;
 
 namespace MauiApp2.Services
 {
     public class MessageService
     {
         static MessageService _instance;
-        
-        //zrobić metode OnMessage();
 
         public static MessageService Instance
         {
@@ -19,59 +18,73 @@ namespace MauiApp2.Services
             }
         }
 
+        public void OnNewMessage(object? sender, MessageEventArgs e)
+        {
+            //TODO logika odbierania wiadomości
+        }
+
         readonly User user1 = new User
         {
             Name = "Maciek Maciek",
             Color = Color.FromArgb("#FFE0EC")
         };
+
         readonly User user2 = new()
         {
             Name = "Ziutek Ziutek",
             Image = "emoji2.png",
             Color = Color.FromArgb("#BFE9F2")
         };
+
         readonly User user3 = new()
         {
             Name = "Ania Ania",
             Image = "emoji3.png",
             Color = Color.FromArgb("#FFD6C4")
         };
+
         readonly User user4 = new()
         {
             Name = "Roman Roman",
             Image = "emoji4.png",
             Color = Color.FromArgb("#C3C1E6")
         };
+
         readonly User user5 = new()
         {
             Name = "Justyna Justyna",
             Image = "emoji5.png",
             Color = Color.FromArgb("#FFE0EC")
         };
+
         readonly User user6 = new()
         {
             Name = "James Bond",
             Image = "emoji6.png",
             Color = Color.FromArgb("#FFE5A6")
         };
+
         readonly User user7 = new()
         {
             Name = "Gerard Kowalski",
             Image = "emoji7.png",
             Color = Color.FromArgb("#FFE0EC")
         };
+
         readonly User user8 = new()
         {
             Name = "Antoni Whitney",
             Image = "emoji8.png",
             Color = Color.FromArgb("#FFE0EC")
         };
+
         readonly User user9 = new()
         {
             Name = "Jaime Zuniga",
             Image = "emoji9.png",
             Color = Color.FromArgb("#C3C1E6")
         };
+
         readonly User user10 = new()
         {
             Name = "Barbara Cherry",
@@ -86,6 +99,7 @@ namespace MauiApp2.Services
                 user1, user2, user3, user4, user5, user6, user7, user8, user9, user10
             };
         }
+
         public List<MessageDummy> GetChats()
         {
             return new List<MessageDummy>

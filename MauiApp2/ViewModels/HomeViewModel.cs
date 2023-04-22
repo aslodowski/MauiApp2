@@ -15,13 +15,19 @@ namespace MauiApp2.ViewModels
         ObservableCollection<User> _users;
         ObservableCollection<MessageDummy> _recentChat;
 
-        // username = "t1";
-        // hostname =
-        // passowrd =
+        //To będzie w LoginViewModel -->
+        public string UserName { get; set; } = "t1";
 
-        public HomeViewModel() 
+        public string Hostname { get; set; } = "legion-y540";
+        public string Password { get; set; } = "t1";
+
+        public ArtalkXmppClient Client { get; set; }
+
+        //To będzie w LoginViewModel <--
+
+        public HomeViewModel()
         {
-
+            Connect();
             LoadData();
         }
 
@@ -47,11 +53,12 @@ namespace MauiApp2.ViewModels
 
         public ICommand DetailCommand => new Command<object>(OnNavigate);
 
-        void Connect()
+        void Connect() //To będzie w LoginViewModel
         {
-            // Client.Message += MessageService.Instance.OnMessage();
-            // Client.Connect();
+            Client = ClientService.Instance.Client;
+            Client.Message += MessageService.Instance.OnNewMessage;
 
+            ClientService.Instance.Login(Hostname, UserName, Password);
         }
 
         void LoadData()
