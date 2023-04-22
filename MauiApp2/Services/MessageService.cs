@@ -19,18 +19,18 @@ namespace MauiApp2.Services
             }
         }
 
-        public ArtalkXmppClient Client { get; set; }
+        public ArtalkXmppClient Client { get; set; } //do wyjebania może
 
         public void OnNewMessage(object? sender, MessageEventArgs e)
         {
             //TODO logika odbierania wiadomości
         }
 
-        public List<RosterItem> GetContacts()
+        public List<RosterItem> GetContacts(ArtalkXmppClient client)
         {
             var contacts = new List<RosterItem>();
 
-            foreach (var rosterItem in Client.GetRoster())
+            foreach (var rosterItem in client.GetRoster())
             {
                 contacts.Add(rosterItem);
             }

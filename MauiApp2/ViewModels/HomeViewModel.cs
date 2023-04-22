@@ -55,9 +55,9 @@ namespace MauiApp2.ViewModels
 
         void LoadData()
         {
-            MessageService.Instance.Client = ClientService.Instance.Client;
+            //MessageService.Instance.Client = ClientService.Instance.Client;
 
-            ContactsCollection = new ObservableCollection<RosterItem>(MessageService.Instance.GetContacts());
+            ContactsCollection = new ObservableCollection<RosterItem>(MessageService.Instance.GetContacts(ClientService.Instance.Client));
 
             Users = new ObservableCollection<User>(MessageService.Instance.GetUsers()); //Do wyjebania
             RecentChat = new ObservableCollection<MessageDummy>(MessageService.Instance.GetChats());
