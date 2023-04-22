@@ -67,5 +67,14 @@ namespace MauiApp2.ViewModels
         {
             NavigationService.Instance.NavigateToAsync<DetailViewModel>(parameter);
         }
+
+        public ICommand LogoutCommand => new Command<object>(Logout);
+        void Logout(object parameter)
+        {
+            ClientService.Instance.Logout();
+
+
+            NavigationService.Instance.NavigateToAsync<LoginViewModel>(parameter);
+        }
     }
 }

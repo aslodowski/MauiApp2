@@ -67,6 +67,7 @@
                     HorizontalOptions="EndAndExpand"
                     Grid.Column="1"
                     Text="Logout"
+                    Command="{Binding LogoutCommand}"
                     Style="{StaticResource LogoutButtonStyle}"/>
             </Grid>
             <Grid

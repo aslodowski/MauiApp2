@@ -29,7 +29,6 @@ namespace MauiApp2.Services
         public List<RosterItem> GetContacts(ArtalkXmppClient client)
         {
             var contacts = new List<RosterItem>();
-
             foreach (var rosterItem in client.GetRoster())
             {
                 contacts.Add(rosterItem);
