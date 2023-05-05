@@ -26,6 +26,6 @@ namespace MauiApp2.Services
         public void Logout()
         {
             Client.Dispose();
-        }
+        } //test
     }
 }
