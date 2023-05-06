@@ -66,6 +66,8 @@
                 <Button x:Name="btnConnect"
                         Command="{Binding ConnectCommand}"
                         Text="Connect"
+                        TextColor="White"
+                        BackgroundColor="#000040"
                         FontSize="25"
                         Grid.Column="0"
                         Grid.ColumnSpan="2"

@@ -23,7 +23,7 @@ namespace MauiApp2.Services
 
         public ObservableCollection<MessageDummy> Messages { get; set; }
 
-        public void OnNewMessage(object? sender, MessageEventArgs e)
+        public void OnNewMessage(object sender, MessageEventArgs e)
         {
             Jid userJid = e.Jid; //Tutaj Jid usera który przysłał
             string message = e.Message.Body; //Tutaj przysłana wiadomość
@@ -43,16 +43,7 @@ namespace MauiApp2.Services
             //TODO do przetestowania i debugowania
         }
 
-        public List<RosterItem> GetContacts(ArtalkXmppClient client)
-        {
-            var contacts = new List<RosterItem>();
-            foreach (var rosterItem in client.GetRoster())
-            {
-                contacts.Add(rosterItem);
-            }
-
-            return contacts;
-        }
+        
 
         public List<User> GetUsers() //Do wyjebania
         {

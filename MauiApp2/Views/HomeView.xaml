@@ -37,7 +37,7 @@
                 <Setter Property="Margin" Value="0, 0, 12, 0" />
             </Style>
 
-            <Color x:Key="SearchBackgroundColor">#868ACB</Color>
+            <!--<Color x:Key="SearchBackgroundColor">#868ACB</Color>-->
 
             <Style x:Key="RecentChatCollectionStyle" TargetType="CollectionView">
                 <Setter Property="Margin" Value="12, 24, 12, 0" />
@@ -75,7 +75,7 @@
                 <BoxView
                     Style="{StaticResource RecentChatAdornerStyle}"/>
                 <CollectionView
-                    ItemsSource="{Binding RecentChat}" 
+                    ItemsSource="{Binding ContactsCollection}" 
                     Style="{StaticResource RecentChatCollectionStyle}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>

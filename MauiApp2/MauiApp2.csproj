@@ -49,6 +49,30 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Views\Templates\SuggestedItemTemplate.xaml.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\call.png" />
+	  <MauiImage Remove="Resources\Images\emoji1.png" />
+	  <MauiImage Remove="Resources\Images\emoji10.png" />
+	  <MauiImage Remove="Resources\Images\emoji2.png" />
+	  <MauiImage Remove="Resources\Images\emoji3.png" />
+	  <MauiImage Remove="Resources\Images\emoji4.png" />
+	  <MauiImage Remove="Resources\Images\emoji5.png" />
+	  <MauiImage Remove="Resources\Images\emoji6.png" />
+	  <MauiImage Remove="Resources\Images\emoji7.png" />
+	  <MauiImage Remove="Resources\Images\emoji8.png" />
+	  <MauiImage Remove="Resources\Images\emoji9.png" />
+	  <MauiImage Remove="Resources\Images\record.png" />
+	  <MauiImage Remove="Resources\Images\search.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Remove="Views\Templates\SuggestedItemTemplate.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\Fonts\MaterialIcons-Regular.ttf" />
 	  <None Remove="Resources\Fonts\Metropolis-Black.otf" />
 	  <None Remove="Resources\Fonts\Metropolis-Light.otf" />
@@ -89,9 +113,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Templates\SenderChatMessageItemTemplate.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Templates\SuggestedItemTemplate.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

@@ -1,5 +1,4 @@
-﻿using Artalk.Xmpp.Client;
-using Artalk.Xmpp.Im;
+﻿using Artalk.Xmpp.Im;
 using MauiApp2.Models;
 using MauiApp2.Services;
 using MauiApp2.ViewModels.Base;

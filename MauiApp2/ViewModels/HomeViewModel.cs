@@ -1,26 +1,15 @@
-﻿using MauiApp2.Models;
+﻿using Artalk.Xmpp.Im;
 using MauiApp2.Services;
 using MauiApp2.ViewModels.Base;
-using MauiApp2.Views;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using Artalk.Xmpp.Client;
-using Artalk.Xmpp.Im;
-using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace MauiApp2.ViewModels
 {
     public class HomeViewModel : ViewModelBase
     {
-        ObservableCollection<User> _users; //do wyjebania
-        ObservableCollection<MessageDummy> _recentChat; //do wyjebania
-        public ObservableCollection<RosterItem> _contactsCollection;
-
-        public HomeViewModel()
-        {
-            LoadData();
-        }
-
+        ObservableCollection<RosterItem> _contactsCollection;
+        // public ContactsModel Contacts { get; set; } = new();
         public ObservableCollection<RosterItem> ContactsCollection
         {
             get { return _contactsCollection; }
@@ -31,38 +20,12 @@ namespace MauiApp2.ViewModels
             }
         }
 
-        public ObservableCollection<User> Users //To do wyjebania
+        public HomeViewModel()
         {
-            get { return _users; }
-            set
-            {
-                _users = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public ObservableCollection<MessageDummy> RecentChat //Do wyjebania
-        {
-            get { return _recentChat; }
-            set
-            {
-                _recentChat = value;
-                OnPropertyChanged();
-            }
+            LoadData();
         }
 
         public ICommand DetailCommand => new Command<object>(OnNavigate);
-
-        void LoadData()
-        {
-            //MessageService.Instance.Client = ClientService.Instance.Client;
-
-            ContactsCollection = new ObservableCollection<RosterItem>(MessageService.Instance.GetContacts(ClientService.Instance.Client));
-
-            Users = new ObservableCollection<User>(MessageService.Instance.GetUsers()); //Do wyjebania
-            RecentChat = new ObservableCollection<MessageDummy>(MessageService.Instance.GetChats()); //do wyjebania
-        }
-
         void OnNavigate(object parameter)
         {
             NavigationService.Instance.NavigateToAsync<DetailViewModel>(parameter);
@@ -76,5 +39,15 @@ namespace MauiApp2.ViewModels
 
             NavigationService.Instance.NavigateToAsync<LoginViewModel>(parameter);
         }
+
+        void LoadData()
+        {
+            //MessageService.Instance.Client = ClientService.Instance.Client;
+
+            ContactsCollection = new ObservableCollection<RosterItem>
+                (ContactService.Instance.GetContacts(ClientService.Instance.Client));
+        }
+
+
     }
 }
