@@ -28,6 +28,6 @@ namespace MauiApp2.Services
         {
             Client.Close();
             //Client.Dispose();
-        } //test
+        } 
     }
 }
