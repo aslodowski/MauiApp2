@@ -39,7 +39,6 @@ namespace MauiApp2.ViewModels
 
             NavigationService.Instance.NavigateToAsync<LoginViewModel>(parameter);
         }
-
         void LoadData()
         {
             //MessageService.Instance.Client = ClientService.Instance.Client;
@@ -47,7 +46,5 @@ namespace MauiApp2.ViewModels
             ContactsCollection = new ObservableCollection<RosterItem>
                 (ContactService.Instance.GetContacts(ClientService.Instance.Client));
         }
-
-
     }
 }

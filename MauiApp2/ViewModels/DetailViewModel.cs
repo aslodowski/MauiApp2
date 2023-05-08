@@ -12,7 +12,7 @@ namespace MauiApp2.ViewModels
         User _user;
         ObservableCollection<MessageDummy> _messages;
 
-        public User User //Do wyjebania na rzecz Contact
+        public User User 
         {
             get { return _user; }
             set
@@ -46,7 +46,7 @@ namespace MauiApp2.ViewModels
 
         string _message;
 
-        public string Message //do tego podpiąć textbox z view gdzie pisze się wiadomości
+        public string Message
         {
             get { return _message; }
             set
@@ -64,7 +64,7 @@ namespace MauiApp2.ViewModels
             if (navigationData is MessageDummy message)
             {
                 User = message.Sender;
-                Messages = new ObservableCollection<MessageDummy>(MessageService.Instance.GetMessages());
+                //Messages = new ObservableCollection<MessageDummy>(MessageService.Instance.GetMessages());
 
                 MessageService.Instance.Messages = Messages;
             }

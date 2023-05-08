@@ -12,20 +12,22 @@ namespace MauiApp2.Services
         {
             get
             {
-                _instance ??= new ClientService();
+                if (_instance == null)
+                    _instance = new ClientService();
 
                 return _instance;
             }
         }
 
-        public void Login(string hostman, string userName, string password)
+        public void Login(string host, string userName, string password)
         {
-            Client = new ArtalkXmppClient(hostman, userName, password);
+            Client = new ArtalkXmppClient(host, userName, password);
         }
 
         public void Logout()
         {
-            Client.Dispose();
+            Client.Close();
+            //Client.Dispose();
         } //test
     }
 }

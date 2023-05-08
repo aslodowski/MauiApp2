@@ -100,6 +100,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\Templates\ContactItemTemplate.xaml.cs">
+	    <DependentUpon>ContactItemTemplate.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Views\DetailView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -109,7 +115,7 @@
 	  <MauiXaml Update="Views\Templates\ReceiverChatMessageItemTemplate.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Templates\RecentChatItemTemplate.xaml">
+	  <MauiXaml Update="Views\Templates\ContactItemTemplate.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Templates\SenderChatMessageItemTemplate.xaml">

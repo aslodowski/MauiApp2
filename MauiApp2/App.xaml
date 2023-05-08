@@ -7,7 +7,6 @@
     <Application.Resources>
         <ResourceDictionary>
 
-            <!-- COLORS -->
             <Color x:Key="PrimaryColor">#000040</Color>
             <Color x:Key="SecondaryColor">White</Color>
 

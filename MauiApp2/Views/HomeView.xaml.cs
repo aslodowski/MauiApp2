@@ -11,5 +11,6 @@ public partial class HomeView : ContentPage
 		InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
         BindingContext = new HomeViewModel();
+        //BindingContext = new LoginViewModel();
     }
 }

@@ -2,7 +2,7 @@
 <ContentView 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="MauiApp2.Views.Templates.RecentChatItemTemplate"
+    x:Class="MauiApp2.Views.Templates.ContactItemTemplate"
     xmlns:viewmodel="clr-namespace:MauiApp2.ViewModels">
     <ContentView.Resources>
         <ResourceDictionary>
@@ -57,8 +57,8 @@
                 Grid.Column="1"   
                 >
                 <StackLayout>
-                    <Label        
-                        Text="{Binding Jid}"
+                    <Label
+                        Text="{Binding Name}"
                         Style="{StaticResource NameTextStyle}"/>
                 </StackLayout>
             </Grid>
